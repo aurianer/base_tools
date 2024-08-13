@@ -1,16 +1,14 @@
 #/bin/bash
 
-if [[ -z $CLUSTER_NAME ]]; then
-    dir=$HOME/virtual_envs
+if [ -z $CLUSTER_NAME ]; then
+    # Local
+    _dir=$SCRATCH/virtual_envs/$(uname -m)
 else
-    dir=$SCRATCH/virtual_envs
+    _dir=$HOME/virtual_envs/
 fi
+pushd $_dir > /dev/null
+    list_of_suggestions=($(find . -mindepth 1 -maxdepth 1))
+popd > /dev/null
+filtered_list=${list_of_suggestions[@]#"./"}
 
-if [[ -d $dir ]]; then
-    pushd $SCRATCH/virtual_envs > /dev/null
-        list_of_suggestions=($(find . -mindepth 1 -maxdepth 1))
-    popd > /dev/null
-
-    filtered_list=${list_of_suggestions[@]#"./"}
-    complete -W "$(echo ${filtered_list[@]})" activate
-fi
+complete -W "$(echo ${filtered_list[@]})" activate
