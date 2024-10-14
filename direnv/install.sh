@@ -54,7 +54,7 @@ set -euo pipefail
   log "kernel=$kernel machine=$machine"
 
   : "${use_sudo:=}"
-  : "${bin_path:=}"
+  : "${bin_path:=$PWD/$(uname -m)/bin}"
 
   if [[ -z "$bin_path" ]]; then
     log "bin_path is not set, you can set bin_path to specify the installation path"
@@ -71,6 +71,7 @@ set -euo pipefail
     die "did not find a writeable path in $PATH"
   fi
   echo "bin_path=$bin_path"
+  mkdir -p $bin_path
 
   if [[ -n "${version:-}" ]]; then
     release="tags/${version}"
