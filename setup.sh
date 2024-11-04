@@ -27,7 +27,7 @@ grep fzf/key-bindings.bash ~/.bashrc > /dev/null
 # direnv
 [ ! -f ./direnv/${base_arch}/bin/direnv ] && pushd direnv && ./install.sh && popd
 grep "direnv/$(uname -m)" ~/.bashrc > /dev/null
-[ $? != 0 ] && echo "export PATH=$PWD/direnv/${base_arch}:\$PATH" >> ~/.bashrc
+[ $? != 0 ] && echo "export PATH=$PWD/direnv/${base_arch}/bin:\$PATH" >> ~/.bashrc
 grep eval\ \"\$\(direnv ~/.bashrc > /dev/null
 [ $? != 0 ] && echo "eval \"\$(direnv hook bash)\"" >> ~/.bashrc
 
