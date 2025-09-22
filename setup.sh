@@ -34,3 +34,6 @@ grep eval\ \"\$\(direnv ~/.bashrc > /dev/null
 # activate completions
 grep activate-completion.sh ~/.bashrc > /dev/null
 [ $? != 0 ] && echo "source \$HOME/config/base_tools/virtual_envs_completion/activate-completion.sh" >> ~/.bashrc
+
+# Alacritty
+./alacritty/setup.sh

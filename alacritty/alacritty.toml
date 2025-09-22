@@ -1,0 +1,16 @@
+[[keyboard.bindings]]
+key = 52
+mods = "Shift"
+mode = "Vi"
+action = "SearchForward"
+
+[colors]
+[colors.primary]
+foreground = '0x52A90E'
+#foreground = '0xC5C8C6'    # White
+
+[window]
+position.x = 0
+position.y = 0
+dimensions.columns = 140
+dimensions.lines = 76
