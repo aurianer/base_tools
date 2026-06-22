@@ -15,7 +15,7 @@ grep -q "fd-v${fd_version}"     ~/.bashrc || echo "export PATH=$PWD/fd/${fd_dir}
 # fzf
 echo "Installing fzf..."
 fzf_version=0.46.1
-fzf_dir=fzf-${fzf_version}-linux_${fzf_arch}
+fzf_dir=fzf-${fzf_version}-linux_${base_arch}
 pushd fzf/${fzf_dir} && tar -xzvf ${fzf_dir}.tar.gz && popd
 grep -q "fzf-${fzf_version}"    ~/.bashrc || echo "export PATH=$PWD/fzf/${fzf_dir}:\$PATH" >> ~/.bashrc
 grep -q "fzf/key-bindings.bash" ~/.bashrc || echo "source $PWD/fzf/key-bindings.bash"      >> ~/.bashrc
